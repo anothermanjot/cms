@@ -1,0 +1,13 @@
+.tableContainer{
+    align-self: flex-start;
+    width: 1000px;
+    max-width: 1000px;
+    max-height: 500px;
+    overflow:auto;
+}
+.tableContainerMobile{
+    align-self: flex-start;
+    width: 400px;
+    max-width: 400px;
+    overflow:auto;
+}

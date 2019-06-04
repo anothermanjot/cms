@@ -1,0 +1,14 @@
+{
+    "/api/**/*": {
+      "target": "http://localhost:8090",
+      "secure": false
+    },
+    "/admin/search/**/*":{
+      "target": "https://tatasky-uat-kong.videoready.tv/search-api",
+      "secure": false
+    },
+    "/admin/**/*": {
+      "target": "http://localhost:8090",
+      "secure": false
+    }
+  }

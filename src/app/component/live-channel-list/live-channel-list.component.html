@@ -1,0 +1,81 @@
+<mat-grid-list cols="1" rowHeight="90">
+  <mat-grid-tile>
+    <span class="fill-space"></span>
+    <mat-form-field>
+      <mat-select [(value)]="enabled" (selectionChange)="getChannels()">
+        <mat-option value={{null}}>
+          All
+        </mat-option>
+        <mat-option value=true>
+          enabled
+        </mat-option>
+        <mat-option value=false>
+          disabled
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [(value)]="ott" (selectionChange)="getChannels()">
+        <mat-option value={{null}}>
+          All
+        </mat-option>
+        <mat-option value=true>
+          OTT
+        </mat-option>
+        <mat-option value=false>
+          Non-OTT
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="queryString" placeholder="search by id..." (change)="getChannels()">
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile rowspan="7">
+    <div class="tableContainer">
+      <table mat-table [dataSource]="liveChannels" class="mat-elevation-z8">
+        <!-- Name Column -->
+        <ng-container matColumnDef="circle">
+          <th mat-header-cell *matHeaderCellDef> Circle </th>
+          <td mat-cell *matCellDef="let element"> <img class="channel-icon" src={{element.circleImage}}> </td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="landscape">
+          <th mat-header-cell *matHeaderCellDef> Landscape </th>
+          <td mat-cell *matCellDef="let element"> <img class="channel-icon" src={{element.squareImage}}> </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="mm_id">
+          <th mat-header-cell *matHeaderCellDef>MM Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.mmId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.titleSortName}} </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="languages">
+          <th mat-header-cell *matHeaderCellDef> Languages </th>
+          <td mat-cell *matCellDef="let element"> {{element.languages}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="hd/sd">
+          <th mat-header-cell *matHeaderCellDef> HD/SD </th>
+          <td mat-cell *matCellDef="let element"> {{element.hdSd}} </td>
+        </ng-container>
+        <ng-container matColumnDef="contract_name">
+          <th mat-header-cell *matHeaderCellDef> Contract Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.contractName}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+      </table>
+      <div>
+        <mat-paginator [length]="resultSize" [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

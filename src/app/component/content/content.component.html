@@ -1,0 +1,32 @@
+<ng-container [ngSwitch]="contentType">
+<ng-container *ngSwitchCase="'live_channel'">
+  <cms-live-channel-list></cms-live-channel-list>
+</ng-container>
+<ng-container *ngSwitchCase="'epg'">
+  <cms-epg-list></cms-epg-list>
+</ng-container>
+<ng-container *ngSwitchCase="'on_demand'">
+  <cms-on-demand-list></cms-on-demand-list>
+</ng-container>
+<ng-container *ngSwitchCase="'brand'">
+  <cms-brand-list></cms-brand-list>
+</ng-container>
+<ng-container *ngSwitchCase="'series'">
+  <cms-series-list></cms-series-list>
+</ng-container>
+<ng-container *ngSwitchCase="'genre'">
+  <cms-genre-list></cms-genre-list>
+</ng-container>
+<ng-container *ngSwitchCase="'rating'">
+  <cms-rating-list></cms-rating-list>
+</ng-container>
+<ng-container *ngSwitchCase="'subscription-package'">
+  <cms-subscription-package-list></cms-subscription-package-list>
+</ng-container>
+<ng-container *ngSwitchCase="'category'">
+  <cms-category-list></cms-category-list>
+</ng-container>
+<ng-container *ngSwitchCase="'tracker'">
+  <cms-tracker></cms-tracker>
+</ng-container>
+</ng-container>

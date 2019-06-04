@@ -1,0 +1,15 @@
+.tableContainer{
+    align-self: flex-start;
+    width: 700px;
+    max-width: 700px;
+    overflow:auto;
+}
+
+table{
+    width: 700px;
+    max-width: 700px;
+}
+
+.mat-row{
+    height: 36px;
+}
